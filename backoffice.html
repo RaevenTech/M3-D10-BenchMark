@@ -54,17 +54,15 @@
                                 aria-labelledby="navbarDarkDropdownMenuLink"
                             >
                                 <li>
-                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Home</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="#"
-                                        >Another action</a
+                                        >User Profile</a
                                     >
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#"
-                                        >Something else here</a
-                                    >
+                                    <a class="dropdown-item" href="#">Search</a>
                                 </li>
                             </ul>
                         </li>
@@ -141,7 +139,7 @@
                         id="send_btn"
                         type="reset"
                         class="btn btn-outline-success mt-4 mr-4"
-                        onclick="getTitleInformation(event)"
+                        onclick="formOnAdd(event)"
                     >
                         Add Movie
                     </button>
@@ -182,6 +180,8 @@
                 }
                 })
                 */
+                const APIURL =
+                    "https://striveschool-api.herokuapp.com/api/movies/";
                 const options = {
                     method: "GET",
                     headers: {
@@ -190,18 +190,28 @@
                             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTAyMTMxMTYsImV4cCI6MTY1MTQyMjcxNn0.qHC2utqjxs2ITDygoOGne7MJPw9f4tmc09zkSBmtn_o",
                     },
                 };
-                const APIURL =
-                    "https://striveschool-api.herokuapp.com/api/movies/";
-                const params = new URLSearchParams(location.search).get("movieId");
-                console.log(params)
-                const id = params.get("id");
-                const method = id ? "POST" : "PUT";
 
-                const formOnAdd = (e) => {
-                    e.preventDefault();~
+                const eventId = new URLSearchParams(location.search).get("id");
+                const endPoint = eventId ? APIURL + eventId : APIURL;
+                const method = eventId ? "POST" : "PUT";
+
+                const postMovie = (movie, callback) => {
+                    console.log(movie);
+                    fetch(endPoint, {
+                        options,
+                        method: method,
+                        body: JSON.stringify(movie),
+                    })
+                        .then((Response) => Response.json())
+                        .then((data) => callback(null, data))
+                        .catch((err) => callback(data, null));
+                };
+
+                const formOnAdd = (event) => {
+                    event.preventDefault();
 
                     const name = document.querySelector("#name").value;
-                    const brand = document.querySelector("#category").value;
+                    const category = document.querySelector("#category").value;
                     const imageUrl = document.querySelector("#imageUrl").value;
                     const description =
                         document.querySelector("#synopsis").value;
@@ -211,12 +221,12 @@
                         imageUrl,
                         description,
                     };
-                    postMovie(movie,(err,data)=>{
-                        if(err){
+                    postMovie(movie, (err, data) => {
+                        if (err) {
                             alert(err.message);
-                        }else{
-                            e.target.reset();
-                            window.location.href = "/";
+                        } else {
+                            event.target.reset();
+                            window.location.href = "/index.html";
                         }
                     });
                 };
