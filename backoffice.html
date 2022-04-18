@@ -81,39 +81,50 @@
                 <div class="form-group">
                     <label for="title"><h4>Title</h4></label>
                     <input
-                        required
+                        id="film_name"
+                        type="text"
+                        name="txtName"
                         class="form-control"
-                        id="name"
-                        placeholder="Example: I am Sam "
+                        placeholder="Movie Name *"
+                        required
+                        value=""
                     />
                 </div>
                 <div class="form-group">
                     <label for="synopsis"><h4>Synopsis</h4></label>
+
                     <textarea
-                        required
+                        id="film_descr"
+                        name="txtMsg"
                         class="form-control"
-                        id="description"
-                        rows="6"
+                        placeholder="Movie description *"
+                        required
+                        style="width: 100%; height: 146px"
                     ></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="Category"><h4>Category</h4></label>
-                    <select multiple class="form-control" id="Category-list">
-                        <option>Thriller</option>
-                        <option>romance</option>
-                        <option>Action</option>
-                    </select>
+                    <input
+                        id="film_category"
+                        type="text"
+                        name="txtEmail"
+                        class="form-control"
+                        placeholder="Category *"
+                        required
+                        value=""
+                    />
                 </div>
-
                 <div class="form-group">
                     <label for="image"><h4>Movie Poster</h4></label>
                     <input
-                        required
+                        id="film_img"
+                        type="text"
+                        name="txtPhone"
                         class="form-control"
-                        id="moviePoster"
-                        value="http://placehold.it/300x400"
-                        placeholder="example: http://placehold.it/300x400"
+                        placeholder="Image Url *"
+                        required
+                        value=""
                     />
                 </div>
 
@@ -126,15 +137,25 @@
                     >
                         <ion-icon name="trash-outline"></ion-icon>
                     </button>
-                    <button type="reset" class="btn btn-success mt-4 mr-4">
+                    <button
+                        id="send_btn"
+                        type="reset"
+                        class="btn btn-outline-success mt-4 mr-4"
+                        onclick="getTitleInformation(event)"
+                    >
                         Add Movie
                     </button>
-                    <button type="submit" class="btn btn-primary mt-4 mr-2">
-                        Edit Movie
+                    <button
+                        id="delete_btn"
+                        type="submit"
+                        class="btn btn-outline-danger mt-4 mr-2"
+                        onclick="deleteTitle(event)"
+                    >
+                        Remove Movie
                     </button>
                 </div>
             </form>
-            <div></div>
+
             <div>
                 <ul class="nav nav-tabs d-flex">
                     <li class="nav-item"></li>
@@ -169,7 +190,7 @@
                             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTAyMTMxMTYsImV4cCI6MTY1MTQyMjcxNn0.qHC2utqjxs2ITDygoOGne7MJPw9f4tmc09zkSBmtn_o",
                     },
                 };
-                const method = id ? "POST" : "PUT";
+                const method = movieId ? "POST" : "PUT";
 
                 window.onload = () => {};
 
