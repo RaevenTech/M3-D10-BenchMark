@@ -7,6 +7,13 @@ body {
   margin: 10px;
   
   background:rgb(4, 0, 36);
+  background: url("https://i.pinimg.com/originals/2d/85/d5/2d85d55acc3595847a41959caa2458be.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+  overflow-y: hidden;
+  
 }
 h1,
 h2 {

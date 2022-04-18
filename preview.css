@@ -7,6 +7,13 @@ body {
   margin: 10px;
   
   background:rgb(4, 0, 36);
+  background: url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/389588124071947.60fc4e4927abd.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+  overflow-y: hidden;
+  
 }
 h1,
 h2 {
