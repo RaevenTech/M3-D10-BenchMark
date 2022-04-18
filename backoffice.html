@@ -81,7 +81,7 @@
                 <div class="form-group">
                     <label for="title"><h4>Title</h4></label>
                     <input
-                        id="film_name"
+                        id="name"
                         type="text"
                         name="txtName"
                         class="form-control"
@@ -94,7 +94,7 @@
                     <label for="synopsis"><h4>Synopsis</h4></label>
 
                     <textarea
-                        id="film_descr"
+                        id="synopsis"
                         name="txtMsg"
                         class="form-control"
                         placeholder="Movie description *"
@@ -106,7 +106,7 @@
                 <div class="form-group">
                     <label for="Category"><h4>Category</h4></label>
                     <input
-                        id="film_category"
+                        id="category"
                         type="text"
                         name="txtEmail"
                         class="form-control"
@@ -118,7 +118,7 @@
                 <div class="form-group">
                     <label for="image"><h4>Movie Poster</h4></label>
                     <input
-                        id="film_img"
+                        id="imageUrl"
                         type="text"
                         name="txtPhone"
                         class="form-control"
@@ -190,22 +190,35 @@
                             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTAyMTMxMTYsImV4cCI6MTY1MTQyMjcxNn0.qHC2utqjxs2ITDygoOGne7MJPw9f4tmc09zkSBmtn_o",
                     },
                 };
-                const method = movieId ? "POST" : "PUT";
+                const APIURL =
+                    "https://striveschool-api.herokuapp.com/api/movies/";
+                const params = new URLSearchParams(location.search).get("movieId");
+                console.log(params)
+                const id = params.get("id");
+                const method = id ? "POST" : "PUT";
 
-                window.onload = () => {};
+                const formOnAdd = (e) => {
+                    e.preventDefault();~
 
-                const formOnAdd = () => {
                     const name = document.querySelector("#name").value;
                     const brand = document.querySelector("#category").value;
                     const imageUrl = document.querySelector("#imageUrl").value;
                     const description =
-                        document.querySelector("#description").value;
-                    const product = {
+                        document.querySelector("#synopsis").value;
+                    const movie = {
                         name,
                         category,
                         imageUrl,
                         description,
                     };
+                    postMovie(movie,(err,data)=>{
+                        if(err){
+                            alert(err.message);
+                        }else{
+                            e.target.reset();
+                            window.location.href = "/";
+                        }
+                    });
                 };
             </script>
 

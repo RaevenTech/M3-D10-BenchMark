@@ -493,10 +493,11 @@
                 const parsedData = await response.json();
                 console.log(parsedData);
             };
+            
             actionMovies.innerHTML = "";
             parsedData.forEach((movie) => {
                 const content = document.createElement("div");
-                content.innerHTML = `<div  class="col-sm-5 col-md-4 col-lg-3 col-xl-2 pt-2 pb-2 pl-0 pr-1 img-hover-zoom">
+                content.innerHTML += `<div  class="col-sm-5 col-md-4 col-lg-3 col-xl-2 pt-2 pb-2 pl-0 pr-1 img-hover-zoom">
         <a class=" href="back.html?id=${movie._id}">
           <img src="${movie.imageUrl}" class="card-img-top" alt="Movie Poster" /></a>
             <h5>${movie.name}</h5>
