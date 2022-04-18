@@ -15,10 +15,12 @@
     </head>
     <body>
         <!-- nav ----------------------------------------------------------------------------------------->
-        <nav class="navbar navbar-expand-lg navbar-dark ">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"
-                    ><span id="net-logo" class="red-nav" style="color: red">NETFILX</span></a
+                    ><span id="net-logo" class="red-nav" style="color: red"
+                        >NETFILX</span
+                    ></a
                 >
                 <button
                     class="navbar-toggler"
@@ -71,146 +73,136 @@
             </div>
         </nav>
         <!--- back office Form -------------------------------------------------------------------->
-        
+
         <div class="container">
-        <h1 id="page-title" class="mt-5">Add Movie</h1>
-        <hr />
-        <form>
-            <div class="form-group">
-                <label for="title"><h4>Title</h4></label>
-                <input
-                    required
-                    class="form-control"
-                    id="title-input"
-                    placeholder="Example: I am Sam "
-                />
-            </div>
-            <div class="form-group">
-                <label for="synopsis"><h4>Synopsis</h4></label>
-                <textarea
-                    required
-                    class="form-control"
-                    id="synopsis"
-                    rows="6"
-                ></textarea>
-            </div>
+            <h1 id="page-title" class="mt-5">Add Movie</h1>
+            <hr />
+            <form>
+                <div class="form-group">
+                    <label for="title"><h4>Title</h4></label>
+                    <input
+                        required
+                        class="form-control"
+                        id="name"
+                        placeholder="Example: I am Sam "
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="synopsis"><h4>Synopsis</h4></label>
+                    <textarea
+                        required
+                        class="form-control"
+                        id="description"
+                        rows="6"
+                    ></textarea>
+                </div>
 
-            <div class="form-group">
-                <label  for="exampleFormControlSelect2"><h4>
-                    
-                    Category</h4></label>
-                <select multiple class="form-control" id="exampleFormControlSelect2">
-                  <option>Thriller</option>
-                  <option>romance</option>
-                  <option>Action</option>
-                
-                </select>
-              </div>
+                <div class="form-group">
+                    <label for="Category"><h4>Category</h4></label>
+                    <select multiple class="form-control" id="Category-list">
+                        <option>Thriller</option>
+                        <option>romance</option>
+                        <option>Action</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="image"><h4>Movie Poster</h4></label>
-                <input
-                    required
-                    class="form-control"
-                    id="moviePoster"
-                    value="http://placehold.it/300x400"
-                    placeholder="example: http://placehold.it/300x400"
-                />
-            </div>
+                <div class="form-group">
+                    <label for="image"><h4>Movie Poster</h4></label>
+                    <input
+                        required
+                        class="form-control"
+                        id="moviePoster"
+                        value="http://placehold.it/300x400"
+                        placeholder="example: http://placehold.it/300x400"
+                    />
+                </div>
 
-           
-
-            <div class="form-group d-flex justify-content-end">
-                <button
-                    id="delete-btn"
-                    type="button"
-                    class="d-none btn btn-outline-danger mr-auto"
-                    onclick="deleteMovie()"
-                >
-                    <ion-icon name="trash-outline"></ion-icon>
-                </button>
-                <button type="reset" class="btn btn-success mt-4 mr-4 ">
-                    Add Movie
-                </button>
-                <button type="submit" class="btn btn-primary  mt-4 mr-2 ">
-                    Edit Movie
-                </button>
-            </div>
-        </div>
-        </form>
-        <div>
-            
-        </div>
-        <div>
-            <ul class="nav nav-tabs d-flex">
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a
-                        class="nav-link"
-                        href="backoffice.html"
-                        style="color: black"
-                        ><h1><span id="red-logo">NETFILX</span></h1></a
+                <div class="form-group d-flex justify-content-end">
+                    <button
+                        id="delete-btn"
+                        type="button"
+                        class="d-none btn btn-outline-danger mr-auto"
+                        onclick="deleteMovie()"
                     >
-                </li>
-            </ul>
-        </div>
-        <div class="col-12">
-            <p id="footer-text" class="row d-flex justify-content-center">
-                &copy 1997-2019 Netflix, Inc. Netflix.com, Inc.
-            </p>
-        </div>
-        <script>
-            /*
-            fetch("https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/", {
-headers: {
-"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTAyMTMxMTYsImV4cCI6MTY1MTQyMjcxNn0.qHC2utqjxs2ITDygoOGne7MJPw9f4tmc09zkSBmtn_o"
-}
-})
-*/
-const options = {
-                method: "GET",
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                    <button type="reset" class="btn btn-success mt-4 mr-4">
+                        Add Movie
+                    </button>
+                    <button type="submit" class="btn btn-primary mt-4 mr-2">
+                        Edit Movie
+                    </button>
+                </div>
+            </form>
+            <div></div>
+            <div>
+                <ul class="nav nav-tabs d-flex">
+                    <li class="nav-item"></li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="backoffice.html"
+                            style="color: black"
+                            ><h1><span id="red-logo">NETFILX</span></h1></a
+                        >
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12">
+                <p id="footer-text" class="row d-flex justify-content-center">
+                    &copy 1997-2019 Netflix, Inc. Netflix.com, Inc.
+                </p>
+            </div>
+            <script>
+                /*
+                            fetch("https://striveschool-api.herokuapp.com/api/put-your-endpoint-here/", {
                 headers: {
-                    "Content-Type": "application/json",
-                    Authorization:
-                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTAyMTMxMTYsImV4cCI6MTY1MTQyMjcxNn0.qHC2utqjxs2ITDygoOGne7MJPw9f4tmc09zkSBmtn_o",
-                },
-            };
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTAyMTMxMTYsImV4cCI6MTY1MTQyMjcxNn0.qHC2utqjxs2ITDygoOGne7MJPw9f4tmc09zkSBmtn_o"
+                }
+                })
+                */
+                const options = {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization:
+                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjU2YzZmYmE5MDIzOTAwMTVkOTY2MTAiLCJpYXQiOjE2NTAyMTMxMTYsImV4cCI6MTY1MTQyMjcxNn0.qHC2utqjxs2ITDygoOGne7MJPw9f4tmc09zkSBmtn_o",
+                    },
+                };
+                const method = id ? "POST" : "PUT";
 
-window.onload = () => {
-    actionMovieDisplay();
-    thrillerMovieDisplay();
-    comedyMovieDisplay();
-    animationMoviedeisplay();
-};
+                window.onload = () => {};
 
-const actionMovies = document.getElementById("action-movies");
-const thrillerMovies = document.getElementById("thriller-movies");
-const comedyMovies = document.getElementById("comedy-movies");
-const animationMovies = document.getElementById("animation-movies");
+                const formOnAdd = () => {
+                    const name = document.querySelector("#name").value;
+                    const brand = document.querySelector("#category").value;
+                    const imageUrl = document.querySelector("#imageUrl").value;
+                    const description =
+                        document.querySelector("#description").value;
+                    const product = {
+                        name,
+                        category,
+                        imageUrl,
+                        description,
+                    };
+                };
+            </script>
 
-const actionMovieDisplay = async () => {
-    const response = await fetch("https://striveschool-api.herokuapp.com/api/movies/action", options);
-    const parsedData = await response.jsom();
-    console.log(parsedBody);
-};
-
-
-        </script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"
-        ></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"
+            ></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+                crossorigin="anonymous"
+            ></script>
+            <script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"
+            ></script>
+        </div>
     </body>
 </html>
