@@ -43,9 +43,7 @@ h2 {
 #red-logo {
   color:red;
 }
-body > div:nth-child(4) > ul > li:nth-child(2) > a {
-    margin-bottom: -15px;
-}
+
 .navbar-brand{
   font-size: 2rem;
 }
@@ -58,4 +56,15 @@ body > div:nth-child(4) > ul > li:nth-child(2) > a {
 }
 #add-movie-btn {
     margin-right: 10px;
+}
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.9s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.5);
 }

@@ -183,7 +183,7 @@
                 const APIURL =
                     "https://striveschool-api.herokuapp.com/api/movies/";
                 const options = {
-                    method: "GET",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         Authorization:
@@ -204,7 +204,7 @@
                     })
                         .then((Response) => Response.json())
                         .then((data) => callback(null, data))
-                        .catch((err) => callback(data, null));
+                        .catch((err) => callback(err, null));
                 };
 
                 const formOnAdd = (event) => {
@@ -226,7 +226,7 @@
                             alert(err.message);
                         } else {
                             event.target.reset();
-                            window.location.href = "/index.html";
+                            window.location.assign("./backoffice.html");
                         }
                     });
                 };
